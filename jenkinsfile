@@ -4,6 +4,13 @@ pipeline{
         maven 'maven'
     }
     stages{
+
+        stage('Checkout'){
+            steps{
+                git url:'https://github.com/nitish-002/DevOpsEval.git', branch:'main'
+                echo "Checkout Complete"
+            }
+        }
         stage('Build'){
             steps{
                 sh 'mvn -B -DskipTests clean package'
